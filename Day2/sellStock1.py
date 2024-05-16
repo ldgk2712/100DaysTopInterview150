@@ -6,13 +6,13 @@ class Solution(object):
         """
         minPrice = prices[0]
         maxProfit = 0
-        for i in range(1,len(prices)):
-            if prices[i] < minPrice:
-                minPrice = prices[i]
+        for price in prices:
+            if minPrice > price:
+                minPrice = price
             else:
-                profit = prices[i] - minPrice
+                profit = price - minPrice
                 maxProfit = max(maxProfit, profit)
         return maxProfit
 
 s = Solution()
-print(s.maxProfit([7,6,4,3,1])) # 5
+print(s.maxProfit([7,1,5,3,6,4])) # 5
